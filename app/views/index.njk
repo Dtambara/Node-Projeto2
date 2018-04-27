@@ -2,6 +2,8 @@
   <title>
   </title>
   <body>
-    <h1>Hello Danilo</h1>
+    {% for user in users %}
+      <p>{{ user.nome }}</p>
+    {% endfor %}
   </body>
 </html>
