@@ -23,4 +23,3 @@ app.use(session(sessionConfig));
 app.use(flash());
 app.use('/', routes);
 
-app.listen(3000);
