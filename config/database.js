@@ -1,7 +1,7 @@
 module.exports = {
-  username: process.env.username,
-  database: process.env.database,
-  host: process.env.host,
+  username: process.env.USERNAME,
+  database: process.env.DATABASE,
+  host: process.env.HOST,
   dialect: 'mysql',
   port: '3306',
 };
