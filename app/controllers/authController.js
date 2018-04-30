@@ -45,4 +45,10 @@ module.exports = {
       res.redirect('app/dashboard');
     });
   },
+
+  signout(req, res) {
+    req.session.destroy(() => {
+      res.redirect('/');
+    });
+  },
 };

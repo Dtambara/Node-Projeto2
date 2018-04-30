@@ -1,8 +1,7 @@
 module.exports = {
-  username: process.env.USERNAME,
-  password: process.env.PASSWORD,
-  database: process.env.DATABASE,
-  host: process.env.HOST,
+  username: 'root',
+  database: 'SNIPPETFY',
+  host: 'localhost',
   dialect: 'mysql',
   port: '3306',
 };
