@@ -1,1 +1,13 @@
-<h1>Hello world</h1>
+<h1 id="hello">Hello world</h1>
+
+<script>
+const titulo = document.querySelector('#hello');
+typeWriter(titulo);
+function typeWriter(element) {
+  const textoArray = element.innerHTML.split('');
+  element.innerHTML = '';
+  for(let i = 0; i < textoArray.length; i++) {
+    setTimeout(() => element.innerHTML += textoArray[i], 75*i);
+  }
+}
+</script>
