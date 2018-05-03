@@ -1,12 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
-  const Snnippet = sequelize.define('Snnippet', {
+  const Snippet = sequelize.define('Snippet', {
     title: DataTypes.STRING,
     content: DataTypes.TEXT,
   });
 
-  Snnippet.associate = (models) => {
-    Snnippet.belongsTo(models.Category);
+  Snippet.associate = (models) => {
+    Snippet.belongsTo(models.Category);
   };
 
-  return Snnippet;
+  return Snippet;
 };

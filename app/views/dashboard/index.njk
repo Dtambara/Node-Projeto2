@@ -1,13 +1,27 @@
-<h1 id="hello">Hello world</h1>
+{% extends 'layouts/default.njk' %}
 
-<script>
-const titulo = document.querySelector('#hello');
-typeWriter(titulo);
-function typeWriter(element) {
-  const textoArray = element.innerHTML.split('');
-  element.innerHTML = '';
-  for(let i = 0; i < textoArray.length; i++) {
-    setTimeout(() => element.innerHTML += textoArray[i], 75*i);
-  }
-}
-</script>
+{% block body %}
+  <div class="wrapper">
+    <nav id="main">
+      <div class="header">
+        <strong>Minha Biblioteca</strong>
+        <a href="/signout">Sair</a>
+      </div>
+      <div class="categories">
+        <strong>Categorias</strong>
+
+        <ul>
+          {% for category in categories %}
+            <li>
+              <a href="/app/categories/{{category.id}}">
+                {{ category.title }}<span>{{ category.Snippets.length }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <a href="">NOVA CATEGORIA</a>
+      </div>
+    </nav>
+  </div>
+{% endblock %}
