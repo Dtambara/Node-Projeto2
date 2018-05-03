@@ -3,6 +3,9 @@ const express = require('express');
 const routes = express.Router();
 const authController = require('./controllers/authController');
 const dashboardController = require('./controllers/dashboardController');
+const categoryController = require('./controllers/categoryController');
+const snippetController = require('./controllers/snippetController');
+
 const authMiddleware = require('./middlewares/auth.js');
 const guestMiddleware = require('./middlewares/guest');
 
@@ -23,6 +26,20 @@ routes.post('/authenticate', authController.authenticate);
 routes.use('/app', authMiddleware);
 routes.get('/app/dashboard', dashboardController.index);
 
+/**
+ * Categorias
+ */
+routes.get('/app/categories/:id', categoryController.show);
+routes.post('/app/categories/create', categoryController.store);
+
+/**
+ * Snippets
+ */
+routes.post('/app/categories/:categoryId/snippets/create', snippetController.store);
+
+/**
+ * Middlewares
+ */
 routes.use((req, res) => res.render('errors/404'));
 
 routes.use((err, req, res, _next) => {
