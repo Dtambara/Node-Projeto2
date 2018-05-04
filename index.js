@@ -5,6 +5,7 @@ const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
 const sessionConfig = require('./config/session');
+const methodOverride = require('method-override');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.set('view engine', 'njk');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session(sessionConfig));
 app.use(flash());
+app.use(methodOverride('_method'));
 app.use('/', routes);
 
 app.listen(process.env.PORT || 5000);

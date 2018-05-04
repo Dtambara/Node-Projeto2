@@ -36,7 +36,9 @@ routes.post('/app/categories/create', categoryController.store);
  * Snippets
  */
 routes.get('/app/categories/:categoryId/snippets/:id', snippetController.show);
-routes.post('/app/categories/:categoryId/snippets/create', snippetController.store);
+routes.post('/app/categories/:activeCategory/snippets/create', snippetController.store);
+routes.put('/app/categories/:activeCategory/snippets/:id', snippetController.update);
+routes.delete('/app/categories/:activeCategory/snippets/:id', snippetController.destroy);
 
 /**
  * Middlewares
