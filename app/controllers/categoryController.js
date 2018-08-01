@@ -4,7 +4,7 @@ const { Snippet } = require('../models');
 module.exports = {
   async store(req, res, next) {
     try {
-      const category = Category.create({
+      const category = await Category.create({
         ...req.body,
         UserId: req.session.user.id,
       });
